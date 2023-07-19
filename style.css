@@ -1,0 +1,23 @@
+.Insumos
+{
+  padding-top: 30px;
+  background-color: rgb(150, 161, 225);
+  border: 2px;
+  border: 2px solid black;
+}
+.container { max-width: 960px; width: 100%; margin: 0 auto; position: relative; display: block;}
+.row1
+{
+  padding-bottom: 5px;
+  display: block;
+}
+.container-check{
+  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  border: 2px;
+  border: 2px solid black;
+}
+.container-check-medicamentos
+{
+  display:grid;
+}
