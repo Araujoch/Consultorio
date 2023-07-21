@@ -10,6 +10,8 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   </head>
   <body style="height: 100%">
     <div class="container mt-3 h-100 d-flex flex-column">
@@ -72,8 +74,19 @@
               <label for="pabellonero" class="form-label">Pabellonera/o</label>
               <input type="text" class="form-control" id="pabellonero" />
             </div>
-            <div class="container border border-secondary mt-2">
-              
+            <div class="container border border-secondary mt-2" id = "div-check">
+              <div class = "row" id = "Medicamento">
+                  <h2>Medicamentos</h2>  
+              </div>
+              <div class = "row" id = "insumo"></div>
+              <div class = "row" id = "suero"></div>
+              <div class = "row" id = "especificos"></div>
+              <div class = "row" id = "suturas"></div>
+              <div class = "row" id = "colirios"></div>
+              <div class = "row" id = "insumos_utilizados"></div>
+              <div class = "row" id = ""></div>
+              <div class = "row" id = ""></div>
+              <div class = "row" id = ""></div>
             </div>
             <div class="col-12">
               <button type="submit" class="btn btn-primary">Sign in</button>
@@ -87,5 +100,7 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
+    <script src = "Insumos.js"> </script>
+
   </body>
 </html>

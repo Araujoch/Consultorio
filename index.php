@@ -1,69 +1,35 @@
+
 <?php
-// Controlador
-class Controlador
-{
-    public function mostrarFormulario()
-    {
-        // Aquí puedes realizar cualquier lógica adicional antes de mostrar el formulario
-
-        // Cargar los datos del usuario desde la base de datos
-        $modelo = new Modelo();
-        $datosUsuario = $modelo->obtenerDatosUsuario();
-
-        // Pasar los datos del usuario a la vista
-        include 'formulario.php';
-    }
-}
-
-// Modelo
-class Modelo
-{
-    public function obtenerDatosUsuario()
-    {
-        // Realizar la conexión a la base de datos
+// Establecer la conexión a la base de datos
         $conexion = new mysqli('localhost', 'root', 'Araujo160998.', 'formularios');
 
-        // Verificar si hay algún error en la conexión
-        if ($conexion->connect_error) {
-            die('Error de conexión: ' . $conexion->connect_error);
+        // Verificar la conexión
+        if (mysqli_connect_errno()) {
+        echo "Error al conectar a la base de datos: " . mysqli_connect_error();
+        exit;
         }
 
-        // Realizar la consulta para obtener los datos del usuario
-        $consulta = "SELECT nombre, email, telefono FROM usuarios";
-        $resultado = $conexion->query($consulta);
+        // Consulta para obtener los datos del inventario
+        $sql = "SELECT * FROM inventario";
+        $resultado = mysqli_query($conexion, $sql);
 
-        // Verificar si se obtuvieron resultados
-        if ($resultado->num_rows > 0) {
-            // Obtener los datos del primer usuario (puedes adaptar esto según tus necesidades)
-            $datosUsuario = $resultado->fetch_assoc();
-            return $datosUsuario;
+        // Verificar si la consulta fue exitosa
+        if (!$resultado) {
+        echo "Error al obtener los datos del inventario: " . mysqli_error($conexion);
+        exit;
+        }
+
+        // Obtener los datos del inventario en un arreglo asociativo
+        $datos_inventario = array();
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+        $datos_inventario[] = $fila;
         }
 
         // Cerrar la conexión a la base de datos
-        $conexion->close();
-    }
-}
+        mysqli_close($conexion);
 
-// Controlador de acciones
-if (isset($_POST['accion']) && $_POST['accion'] === 'mostrar_formulario') {
-    $controlador = new Controlador();
-    $controlador->mostrarFormulario();
-}
+        // Devolver los datos del inventario en formato JSON
+        header('Content-Type: application/json');
+        echo json_encode($datos_inventario);
+
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Página con formulario</title>
-</head>
-<body>
-    <div>
-        
-    </div>
-    <form method="post" action="index.php">
-        <input type="hidden" name="accion" value="mostrar_formulario">
-        <input type="submit" value="Mostrar formulario">
-    </form>
-</body>
-</html>
-
