@@ -14,10 +14,22 @@
 
   </head>
   <body style="height: 100%">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        Consultorio
+      </div>
+    </nav>
     <div class="container mt-3 h-100 d-flex flex-column">
       <div class="row flex-fill" style="min-height: 0">
-        <div class="col-2 border-end mh-100 overflow-y-scroll">
-          <ul class="nav nav-pills align-items-stretch flex-column">
+        <div class="offcanvas-lg offcanvas-start col-lg-2 border-end h-100 overflow-y-scroll" tabindex="-1" id="offcanvasContent">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasLabel">Acceso rápido</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasContent" aria-label="Close"></button>
+          </div>
+          <ul class="offcanvas-body nav nav-pills align-items-stretch flex-column">
             <li class="py-1 nav-item">
               <a href="#formulario">Formulario</a>
             </li>
@@ -44,7 +56,7 @@
             </li>
           </ul>
         </div>
-        <div class="col-10 mh-100 overflow-y-scroll">
+        <div class="col mh-100 overflow-y-scroll">
           <form class="row g-3">
             <div class="col-md-5">
               <label for="name_paciente" class="form-label"
@@ -75,15 +87,39 @@
               <input type="text" class="form-control" id="pabellonero" />
             </div>
             <div class="container border border-secondary mt-2" id = "div-check">
-              <div class = "row" id = "Medicamento">
-                  <h2>Medicamentos</h2>  
+              <div class = "row" id = "medicamento">
+                  <h2>Medicamentos</h2>
               </div>
-              <div class = "row" id = "insumo"></div>
-              <div class = "row" id = "suero"></div>
-              <div class = "row" id = "especificos"></div>
-              <div class = "row" id = "suturas"></div>
-              <div class = "row" id = "colirios"></div>
-              <div class = "row" id = "insumos_utilizados"></div>
+              <div class = "row" id = "suero">
+                <h2>Sueros</h2>
+              </div>
+              <div class = "row" id = "insumo">
+                <h2>Insumos</h2>
+              </div>
+              <div class = "row" id = "especificos">
+                <h2>Especificos</h2>
+              </div>
+              <div class = "row" id = "suturas">
+                <h2>Suturas</h2>
+              </div>
+              <div class = "row" id = "colirios">
+                <h2>Colirios</h2>
+              </div>
+              <div class = "row" id = "insumos_utilizados">
+                <h2>Adhesivo insumos utilizados</h2>
+                <div class="form-floating my-3">
+                  <textarea class="form-control" id="textarea1" style="height: 100px"></textarea>
+                </div>
+                <div class="form-floating my-3">
+                  <textarea class="form-control" id="textarea2" style="height: 100px"></textarea>
+                </div>
+                <div class="form-floating my-3">
+                  <textarea class="form-control" id="textarea3" style="height: 100px"></textarea>
+                </div>
+                <div class="form-floating my-3">
+                  <textarea class="form-control" id="textarea4" style="height: 100px"></textarea>
+                </div>
+              </div>
               <div class = "row" id = ""></div>
               <div class = "row" id = ""></div>
               <div class = "row" id = ""></div>
@@ -100,7 +136,6 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
-    <script src = "Insumos.js"> </script>
-
+    <script src="Insumos.js"></script>
   </body>
 </html>
